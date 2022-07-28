@@ -176,7 +176,7 @@
 //S=0,E=-127,M=1.101
 //0.001*2^-126
 
-
+//字符指针
 //int main()
 //{
 //	const char* p = "abcdef";//这是一个常量字符串
@@ -201,7 +201,7 @@
 //}
 
 
-//指针数组的初级使用
+//指针数组
 //int main()
 //{
 //	int a = 1;
@@ -217,22 +217,60 @@
 //}
 
 //同上
-int main()
+//int main()
+//{
+//	int arr1[] = { 1,2,3,4 };
+//	int arr2[] = { 2,3,4,5 };
+//	int arr3[] = { 3,4,5,6 };
+//	int* arr[] = { arr1,arr2,arr3 };
+//	int i = 0, j = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		for (j = 0; j < 4; j++)
+//		{
+//			printf("%d ", *(arr[i] + j));
+//		}
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
+
+//数组指针
+//int main()
+//{
+//	int arr1[10] = { 0 };//整型数组的额不完全初始化
+//	int(*pa1)[10] = &arr1;//explain：*pa1-->pa是一个指针  [10]-->pa指向的数组里有十个元素	int-->十个元素的类型是int型
+//	int* arr2[10];
+//	int* (*pa2)[10] = &arr2;
+//	return 0;
+//}
+
+//数组指针的使用
+void print1(int(*pa)[5] ,int x,int y)
 {
-	int arr1[] = { 1,2,3,4 };
-	int arr2[] = { 2,3,4,5 };
-	int arr3[] = { 3,4,5,6 };
-	int* arr[] = { arr1,arr2,arr3 };
 	int i = 0, j = 0;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < x; i++)
 	{
-		for (j = 0; j < 4; j++)
+		for (j = 0; j < y; j++)
 		{
-			printf("%d ", *(arr[i] + j));
+			printf("%d ",*(*(pa + i) + j));//pa是 指向一行的地址，加上个i跳过i行，*（pa+i）相当于找到了这行，拿到了这行的数组名，*（pa+i）+j相当于找到了这一行第j个元素
+			//printf("%d ", (*(pa + i))[j]);
+			//printf("%d ",pa[i][j]);
 		}
 		printf("\n");
 	}
 
+}
+int main()
+{	
+	int arr[3][5] = { {1,2,3,4,5},{2,3,4,5,6},{3,4,5,6,7} };
+
+	print1(&arr, 3, 5);
+
 	return 0;
 }
+//去掉数组名和后面的方块就是数组里面元素的类型
+
+
 
