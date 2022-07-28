@@ -1,3 +1,2 @@
 ﻿  源.c
-D:\Users\18503\source\repos\Project3\源.c(146,15): warning C4013: “strlen”未定义；假设外部返回 int
   Project3.vcxproj -> D:\Users\18503\source\repos\Project3\x64\Debug\Project3.exe
