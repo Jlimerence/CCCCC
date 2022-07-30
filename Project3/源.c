@@ -352,34 +352,34 @@
 
 
 //最朴实无华的加减乘除
-
-int Add(int x, int y)
-{
-	return x + y;
-}
-int Sub(int x, int y)
-{
-	return x - y;
-}
-int Mul(int x, int y)
-{
-	return x * y;
-}
-int Div(int x, int y)
-{
-	return x / y;
-}
-int Xor(int x, int y)
-{
-	return x ^ y;
-}
-void menu()
-{
-	printf("*****************************\n");
-	printf("****1.Add          2.Sub*****\n");
-	printf("****3.Mul          4.Div*****\n");
-	printf("*******   0.exit    *********\n");
-}
+//
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int Mul(int x, int y)
+//{
+//	return x * y;
+//}
+//int Div(int x, int y)
+//{
+//	return x / y;
+//}
+//int Xor(int x, int y)
+//{
+//	return x ^ y;
+//}
+//void menu()
+//{
+//	printf("*****************************\n");
+//	printf("****1.Add          2.Sub*****\n");
+//	printf("****3.Mul          4.Div*****\n");
+//	printf("*******   0.exit    *********\n");
+//}
 //int main()
 //{
 //	int input = 0;
@@ -447,45 +447,176 @@ void menu()
 
 //通过回调函数改进switch代码						回调函数--------->用2函数来接收1函数的地址，在2函数内部实现1函数的功能
 
-void Calc(int(*pfArr)(int,int))
-{
-	int x = 0, y = 0;
-	printf("请输如两个操作数：\n");
-	scanf("%d%d", &x, &y);
-	int ret = pfArr(x, y);
-	printf("%d\n", ret);
+//void Calc(int(*pfArr)(int,int))
+//{
+//	int x = 0, y = 0;
+//	printf("请输如两个操作数：\n");
+//	scanf("%d%d", &x, &y);
+//	int ret = pfArr(x, y);
+//	printf("%d\n", ret);
+//
+//}
+//
+//
+//int main()
+//{
+//	int input = 0;
+//	do
+//	{
+//		menu();
+//		printf("请选择：\n");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:Calc(Add);
+//			break;
+//		case 2:Calc(Sub);
+//			break;
+//		case 3:Calc(Mul);
+//			break;
+//		case 4:Calc(Div);
+//			break;
+//		case 0:printf("退出\n");
+//			break;
+//		default:printf("选择错误\n");
+//			break;
+//		}
+//	} while (input);
+//
+//	return 0;
+//}
 
-}
+
+//复习指针数组和数组指针
+
+//指针数组
+//int main()
+//{	
+//	int a = 1, b = 2, c = 3;
+//	int* arr[] = { &a,&b,&c };
+//	printf("%p\n", arr[0]);
+//	printf("%p\n", arr[1]);
+//	printf("%p\n", arr[2]);
+//	return 0;
+//}
 
 
-int main()
-{
-	int input = 0;
-	do
-	{
-		menu();
-		printf("请选择：\n");
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:Calc(Add);
-			break;
-		case 2:Calc(Sub);
-			break;
-		case 3:Calc(Mul);
-			break;
-		case 4:Calc(Div);
-			break;
-		case 0:printf("退出\n");
-			break;
-		default:printf("选择错误\n");
-			break;
-		}
-	} while (input);
+//数组指针
+//int main()
+//{	
+//	int arr[] = { 1,2,3,4,5,6,7,8,9 };
+//	int(*p)[] = &arr;
+//	int i = 0;
+//	for (i = 0; i < 9; i++)
+//	{
+//		//printf("%d ", *((*p) + i));//对p进行解引用得到数组本身，相当于是得到了arr（数组首元素的地址）
+//		printf("%d ", (*p)[i]);//相当于写成arr[i]
+//	}
+//	return 0;
+//}
 
-	return 0;
-}
+//int main()
+//{
+//	int arr[3][3] = { 1,2,3,4,5,6,7,8,9 };
+//	int(*p)[3] = &arr;//二维数组首元素的地址，就i是第一行的地址，这里指针指向的就是第一行的地址
+//	int i = 0, j = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		for (j = 0; j < 3; j++)
+//		{
+//			printf("%d ", *(*(p + i) + j));//对某一行进行解引用相当于得到了这一行，当成一维数组看待，就是这一行首元素的地址
+//			//printf("%d ", (*(p + i))[j]);//方块前面部分就相当于是一维数组名
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+//冒泡排序
+
+//void Bubble_sort(int arr[], int sz)
+//{
+//	int i = 0, j = 0;
+//	//趟数
+//	for (i = 0; i < sz - 1; i++)
+//	{	
+//		//一趟冒泡排序
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int temp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = temp;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 10,9,8,7,6,5,4,3,2,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	Bubble_sort(arr, sz);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//
+//	return 0;
+//}
 
 
+
+//用qsort函数实现排序
+//#include<stdlib.h>
+//int compare(const void* s1, const void* s2)
+//{
+//	return *(int*)s1 - *(int*)s2;
+//
+//}
+//void test1()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	qsort(arr, sz, sizeof(arr[0]), compare);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//
+//typedef struct stu
+//{
+//	char name[20];
+//	int age;
+//}stu;
+//int cmp_age(const void* s1, const void* s2)
+//{
+//	return ((stu*)s1)->age - ((stu*)s2)->age;
+//
+//}
+//#include<string.h>
+//int cmp_name(const void* s1, const void* s2)
+//{
+//	return strcmp(((stu*)s1)->name, ((stu*)s2)->name);
+//}
+//void test2()
+//{
+//	stu s1[] = { {"zhangsan",50},{"lisi",90},{"wangwu",40} };
+//	int sz = sizeof(s1) / sizeof(s1[0]);
+//	//按年龄排序
+//	//qsort(s1, sz, sizeof(s1[0]), cmp_age);
+//	//按姓名排序
+//	qsort(s1, sz, sizeof(s1[0]), cmp_name);
+//}
+//
+//
+//int main()
+//{	//test1();//整数进行排序
+//	test2();//结构体数组进行排序
+//	return 0;
+//}
 
 
