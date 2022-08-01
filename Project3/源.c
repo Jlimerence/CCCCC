@@ -622,41 +622,118 @@
 
 
 
+//
+//void Swap(char*buf1, char*buf2, int width)
+//{
+//	int i = 0;
+//	for (i = 0; i < width; i++)
+//	{
+//		char tmp = *buf1;
+//		*buf1 = *buf2;
+//		*buf2 = tmp;
+//		buf1++;
+//		buf2++;
+//	}
+//}
+//
+////模仿qsort实现一个冒泡排序的通用算法
+//void bubble_sort(void* base,int sz,int width,int (*cmp)(const void*e1, const void*e2) )
+//{
+//	int i = 0;
+//	//趟数
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		//一趟的排序
+//		int j = 0;
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{
+//			//两个元素比较
+//			//arr[j] arr[j+1]
+//			if (cmp( (char*)base+j*width, (char*)base+(j+1)*width )>0)
+//			{
+//				//交换
+//				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+//			}
+//		}
+//	}
+//}
 
-void Swap(char*buf1, char*buf2, int width)
-{
-	int i = 0;
-	for (i = 0; i < width; i++)
-	{
-		char tmp = *buf1;
-		*buf1 = *buf2;
-		*buf2 = tmp;
-		buf1++;
-		buf2++;
-	}
-}
 
-//模仿qsort实现一个冒泡排序的通用算法
-void bubble_sort(void* base,int sz,int width,int (*cmp)(const void*e1, const void*e2) )
-{
-	int i = 0;
-	//趟数
-	for (i = 0; i < sz - 1; i++)
-	{
-		//一趟的排序
-		int j = 0;
-		for (j = 0; j < sz - 1 - i; j++)
-		{
-			//两个元素比较
-			//arr[j] arr[j+1]
-			if (cmp( (char*)base+j*width, (char*)base+(j+1)*width )>0)
-			{
-				//交换
-				Swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
-			}
-		}
-	}
-}
+
+//模仿qsort实现通用冒泡排序
+//int p(void* s1, void* s2)
+//{
+//	return *(int*)s1 - *(int*)s2;
+//
+//}
+//void swap(char* buff1,char* buff2,int width)
+//{
+//	int i = 0;
+//		for (i = 0; i < width; i++)
+//		{
+//			char tmp = *buff1;
+//			*buff1 = *buff2;
+//			*buff2 = tmp;
+//			buff1++;
+//			buff2++;
+//		}
+//}
+//void bubble_sort(void* arr,int sz,int width,int(*p)(void* s1,void* s2))
+//{
+//	int i = 0;
+//	for (i = 0; i < sz-1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < sz - 1 - i; j++)
+//		{	
+//			//判断条件
+//			if (p( (char*)arr+width*j,(char*)arr+width*(j+1))>0 )
+//			{
+//				swap((char*)arr + width * j, (char*)arr + width * (j + 1),width);
+//			}
+//		}
+//	}
+//
+//}
+//
+//void test1()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int width = sizeof(arr[0]);
+//	bubble_sort(arr,sz,width,p);
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//}
+//typedef struct book
+//{
+//	int price;
+//	char name[20];
+//}book;
+//
+//int sort_price(void* p1, void* p2)
+//{
+//	return ((book*)p1)->price - ((book*)p2)->price;
+//
+//}
+//void test2()
+//{
+//	book b1[3] = { {80,"yuhua"},{70,"lisi"},{40,"wangwu"} };
+//	int sz = sizeof(b1) / sizeof(b1[0]);
+//	int width = sizeof(b1[0]);
+//	bubble_sort(b1, sz, width, sort_price);
+//
+//
+//}
+//int main()
+//{
+//	//test1();
+//	test2();
+//	return 0;
+//}
 
 
 
