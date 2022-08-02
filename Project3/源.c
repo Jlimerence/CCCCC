@@ -735,6 +735,159 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a[5][5];
+//	int(*p)[4];
+//	p = a;
+//	printf("%p,%d\n", &p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = -4;
+//	printf("%p", a);
+//	
+//	return 0;
+//}
+
+//作业
+//写一个函数可以逆序字符串的内容
+
+//void reverse(char arr[], int ret)
+//{
+//	int left = 0;
+//	int right = ret;
+//	while (left<right)
+//	{
+//		int tmp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+
+//#include<assert.h>
+//void reverse(char* p, int ret)
+//{	
+//	assert(p);
+//	int left = 0;
+//	int right = ret;
+//	while (left < right)
+//	{
+//		int tmp = *(p + left);
+//		*(p + left) = *(p + right);
+//		*(p + right) = tmp;
+//		left++;
+//		right--;
+//	}
+//}
 
 
+//#include<string.h>
+//int main()
+//{
+//	char arr[300] = {0};
+//	//scanf("%s", arr);//scanf读取到空格后面的内容就不会再读取了
+//	gets(arr);//读取一行（可以读取到空格）
+//	int ret = strlen(arr)-1;
+//	reverse(arr,ret);
+//	printf("%s", arr);
+//
+//	return 0;
+//}
 
+//求5+55+555+5555+55555
+//int main()
+//{
+//	int a = 5;
+//	int sum = a + a * 10 + a + a * 100 + a * 10 + a + a * 1000 + a * 100 + a * 10 + a + a * 10000 + a * 1000 + a * 100 + a * 10 + a;
+//	printf("%d", sum);
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 5;
+//	int sum = 0;
+//	int count = 0;
+//	for (a = 5;count<10; a=a*10)
+//	{
+//		
+//		sum = sum + a;
+//		count++;
+//
+//	}
+//	printf("sum=%d\n", sum);
+//	printf("count=%d\n", count);
+//	return 0;
+//}
+
+//求1--10000类似于水仙花数的数     水仙花数：153=1^3+5^3+3^3
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1; i <= 100000; i++)
+//	{
+//
+//	}
+//
+//
+//
+//	return 0;
+//}
+
+
+//打印菱形
+  /*  *
+     ***
+    *****
+   *******
+  *********
+   *******
+    *****
+     ***
+      *   */
+ 
+//int main()
+//{
+//    //只能是奇数行--->拆分成上半部分和下半部分
+//    int line = 0;
+//    scanf("%d", &line);
+//    //分为打印空格和‘*’
+//    int i = 0;
+//    for (i = 0; i < line; i++)
+//    {   
+//        //打印空格
+//        int j = 0;
+//        for (j = 0; j < line - 1-i; j++)
+//        {
+//            printf(" ");
+//        }
+//        //打印*
+//        for (j = 0;j<2*i+1; j++)//line=7
+//        {
+//            printf("*");
+//        }
+//        printf("\n");
+//    }
+//    //打印下半部分
+//    for (i = 0; i < line - 1; i++)
+//    {
+//        int j = 0;
+//        for (j = 0;j<i+1; j++)
+//        {
+//            printf(" ");
+//        }
+//        for (j = 0;j<2*(line-1-i)-1; j++)
+//        {
+//            printf("*");
+//        }
+//        printf("\n");
+//
+//    }
+//    return 0;
+//}
