@@ -244,34 +244,112 @@
 #include<string.h>
 
 //暴力求解法
-void move_left(char* arr, int k)
+//void move_left(char* arr, int k)
+//{	
+//	assert(arr);
+//	char tmp = 0;
+//	int i = 0;
+//	int len = strlen(arr);
+//	for (i = 0; i < k; i++)
+//	{	
+//		//翻转一次
+//
+//		tmp = *arr;
+//		int j = 0;
+//
+//		for (j = 0; j < len - 1; j++)
+//		{
+//			arr[j] = arr[j + 1];
+//		}
+//		arr[len - 1] = tmp;
+//	}
+//
+//}
+//
+//int main()
+//{
+//	char arr[] = { "abcdef" };
+//	move_left(arr, 2);
+//	printf("%s", arr);
+//	return 0;
+//
+//}
+
+
+//三步翻转法（代码执行的效率较高）
+//ab cdef翻转左边
+//ba fedc翻转右边
+//cdefab翻转整体
+
+#include<assert.h>
+void reverse(char* left, char* right)
 {	
-	assert(arr);
-	char tmp = 0;
-	int i = 0;
-	int len = strlen(arr);
-	for (i = 0; i < k; i++)
-	{	
-		//翻转一次
-
-		tmp = *arr;
-		int j = 0;
-
-		for (j = 0; j < len - 1; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[len - 1] = tmp;
+	assert(left != NULL && right != NULL);
+	while (left<right)
+	{
+		char tmp = *left;
+		*left = *right;
+		*right = tmp;
+		left++;
+		right--;
 	}
 
 }
 
-int main()
+void move(char* arr, int k)
 {
-	char arr[] = { "abcdef" };
-	move_left(arr, 2);
-	printf("%s", arr);
-	return 0;
+	assert(arr);
+	int len = strlen(arr);
+	//翻转左边
+	reverse(arr,arr+k-1);		//左边翻转只可以使用参数k
+	//翻转右边
+	reverse(arr+k,arr+len-1);//使用strlen函数，来表示长度
+	//翻转整体
+	reverse(arr,arr+len-1);
 
 }
-//三步翻转法（代码执行的效率较高）
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	move(arr, 2);
+//	printf("%s", arr);
+//	return 0;
+//}
+
+//思考：左旋转可以搞定，那么右旋转呢？？？
+
+//用三步翻转法可以吗？
+
+
+
+//写一个函数判断B字符串是不是A经过翻转得到的
+//方法一：穷举法
+#include<string.h>
+int Is_leftmove(char* arr1, char* arr2)
+{	
+	assert(arr1 != 0 && arr2 != 0);
+	int len = strlen(arr1);
+	int i = 0;
+	for (i = 0; i < len; i++)
+	{
+		move(arr1, 1);
+		if (strcmp(arr1, arr2) == 0)
+			return 1;
+	}
+	return 0;
+}
+int main()
+{
+	char arr1[] = "abcdef";
+	char arr2[] = "cdefab";
+	int ret= Is_leftmove(arr1, arr2);
+	if (ret == 1)
+		printf("Yes\n");
+	else
+		printf("NO\n");
+	return 0;
+}
+
+//方法二
+//abcdefabcdef
+//字符串B如果是A经过旋转得到的，那一定是A+A的子集

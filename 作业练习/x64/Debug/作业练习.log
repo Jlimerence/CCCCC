@@ -1,3 +1,4 @@
 ﻿  test.c
-D:\CCCCC\CCCCC\作业练习\test.c(251,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\CCCCC\CCCCC\作业练习\test.c(302,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\CCCCC\CCCCC\作业练习\test.c(330,12): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   作业练习.vcxproj -> D:\CCCCC\CCCCC\作业练习\x64\Debug\作业练习.exe
