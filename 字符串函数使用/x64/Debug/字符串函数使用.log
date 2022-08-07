@@ -1,2 +1,4 @@
 ﻿  test.c
+D:\CCCCC\CCCCC\字符串函数使用\test.c(346,2): warning C4013: “toupper”未定义；假设外部返回 int
+D:\CCCCC\CCCCC\字符串函数使用\test.c(347,10): warning C4087: “getchar”: 用“void”参数列表声明
   字符串函数使用.vcxproj -> D:\CCCCC\CCCCC\字符串函数使用\x64\Debug\字符串函数使用.exe
