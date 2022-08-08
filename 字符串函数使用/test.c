@@ -340,11 +340,122 @@ char* my_strcpy(char* str1, const char* str2)
 //}
 
 //方法二
+//int main()
+//{
+//	/*char ph = toupper('a');
+//	putchar(ph);*/
+//
+//	char arr[] = "I Am A Student";
+//	int i = 0;
+//	while (arr[i])
+//	{
+//		if (isupper(arr[i]))
+//			arr[i] = tolower(arr[i]);
+//		i++;
+//	}
+//	printf("%s\n", arr);
+//
+//	return 0;
+//}
+
+
+//内存操作函数****************************************************************************************************************************
+//memcpy
+
+//struct stu
+//{
+//	char name[20];
+//	int age;
+//};
+//void* my_memcpy(void* dest, const void* source, size_t num)
+//{
+//	void* ret = dest;
+//	while (num--)
+//	{
+//		*(char*)dest = *(char*)source;
+//		++(char*)dest;
+//		++(char*)source;
+//	}
+
+	/*int i = 0;
+	for (i = 0; i < num; i++)
+	{
+		*(char*)dest = *(char*)source;
+		++(char*)dest;
+		++(char*)source;
+	}*/
+
+	/*return ret;*/
+
+//}
+
+//C语言标准
+//memcpy：只要处理不重叠的内存拷贝就可以
+//memmove：处理重叠内存的拷贝
+
+
+
+//void* my_memmove(void* dest,const void* src, size_t num)
+//{	
+//	void* ret = dest;
+//	if (dest < src)
+//	{
+//		while (num--)
+//		{
+//			*(char*)dest = *(char*)src;
+//			++(char*)dest;
+//			++(char*)src;
+//		}
+//	}
+//	else 
+//	{
+//		while (num--)
+//		{
+//			*((char*)dest + num) = *((char*)src + num);
+//		}
+//	}
+//	return ret;
+//
+//
+//}
+//int main()
+//{
+//	int arr[] = {1,2,3,4,5,6,7,8,9,10};
+//	//my_memcpy(arr + 2, arr, sizeof(arr) / 2);
+//	//memcpy(arr + 2, arr, sizeof(arr) / 2);//在vs编译器下memcpy和memmove代码是一样的
+//	//memmove(arr + 2, arr, sizeof(arr) / 2);//处理内存重叠的情况
+//
+//	my_memmove(arr + 2, arr, sizeof(arr) / 2);
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d ",arr[i]);
+//	}
+//
+//	return 0;
+//}
+//int main()
+//{
+//	int arr1[] = { 1,2,3,4,5 };
+//	int arr2[5] = { 0 };
+//	//memcpy(arr2, arr1, sizeof(arr1));
+//	struct stu arr3[] = { {"zhangsan",20},{"lisi",30},{"wangwu",50} };
+//	struct stu arr4[3] = { 0 };
+//	my_memcpy(arr4, arr3, sizeof(arr3));
+//
+//	return 0;
+//}
+
+
+//memset--->内存设置函数
 int main()
 {
-	char p = 'a';
-	toupper(p);
-	getchar(p);
+	int arr[10] = { 0 };
+
+	//01 01 01 01   01 01 01 01   01 01 00 00   00 00 00...
+	 memset(arr, 1, 10);//10---->表示十个字节
+	
 
 	return 0;
 }
+
