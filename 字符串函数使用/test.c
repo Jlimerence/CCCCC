@@ -448,14 +448,83 @@ char* my_strcpy(char* str1, const char* str2)
 
 
 //memset--->内存设置函数
-int main()
-{
-	int arr[10] = { 0 };
+//int main()
+//{
+//	int arr[10] = { 0 };
+//
+//	//01 01 01 01   01 01 01 01   01 01 00 00   00 00 00...
+//	 memset(arr, 1, 10);//10---->表示十个字节
+//	
+//
+//	return 0;
+//}
 
-	//01 01 01 01   01 01 01 01   01 01 00 00   00 00 00...
-	 memset(arr, 1, 10);//10---->表示十个字节
-	
 
-	return 0;
-}
+//**************************************************复习*********************************************************************************
+#include<string.h>
 
+//1、strcat、strncat:字符串追加函数
+//int main()
+//{
+//	char arr1[20] = { "adefg\0xxxxxxx"};
+//	char arr2[] = { "hijk" };
+//	//追加结束后会在追加结束的位置补:\0
+//	//char* ret = strcat(arr1, arr2);
+//	//追加具体的字符个数，依旧会补：\0
+//	char* ret = strncat(arr1, arr2, 2);
+//	printf("%s", ret);
+//	return 0;
+//}
+
+//2、strstr:find a substring
+//int main()
+//{
+//	char arr1[] = "hello";
+//	char arr2[] = "he";
+//	char* ret = strstr(arr1, arr2);
+//	if (ret == NULL)
+//		printf("找不到子串\n");
+//	else
+//		printf("%s", ret);
+//	
+//	return 0;
+//}
+
+//strtok:Find the next token in a string.   在字符串中查找下一个标记。
+//int main()
+//{	
+//	char buff[] = "zhangsan@gmail.com";
+//	char arr1[30] = "";
+//	strcpy(arr1, buff);
+//	char arr2[] = "@.";
+//	char* ret=NULL;
+//	for (ret = strtok(arr1, arr2); ret != NULL; ret = strtok(NULL, arr2))
+//	{
+//		printf("%s\n",ret);
+//	}
+//
+//	return 0;
+//}
+
+
+//strerror
+//#include<errno.h>
+//
+//int main()
+//{
+//	//char* ret = strerror(0);
+//	/*char* ret = strerror(1);
+//	printf("%s", ret);*/
+//
+//	FILE* ph = fopen("test.txt", "r");
+//	if (ph == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//	}
+//	else
+//	{
+//		printf("打开成功\n");
+//	}
+//
+//	return 0;
+//}
