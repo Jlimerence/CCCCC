@@ -477,11 +477,41 @@ char* my_strcpy(char* str1, const char* str2)
 //}
 
 //2、strstr:find a substring
+//模拟实现strstr函数
+
+//char* my_strstr(char* p1, char* p2)
+//{
+//	assert(p1 && p2);
+//	if (p2 == NULL)
+//	{
+//		return p1;
+//	}
+//	char* cur = p1;
+//	char* s1 = p1;
+//	char* s2 = p2;
+//	while (*cur)
+//	{
+//
+//		while ((s1!='\0')&&(s2!='\0') && (*s1 == *s2))
+//		{
+//			s1++;
+//			s2++;
+//		}
+//		if (*s2 == '\0')
+//			return p1;
+//		if (*s1 == '\0')
+//			return NULL;
+//
+//		cur++;
+//	}
+//	return NULL;
+//
+//}
 //int main()
 //{
 //	char arr1[] = "hello";
 //	char arr2[] = "he";
-//	char* ret = strstr(arr1, arr2);
+//	char* ret = my_strstr(arr1, arr2);
 //	if (ret == NULL)
 //		printf("找不到子串\n");
 //	else
