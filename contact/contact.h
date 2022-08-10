@@ -7,6 +7,18 @@
 #define MAX_TELE 12
 #define MAX_ADDR 20
 #define MAX 1000
+
+enum Option
+{
+	EXIT,
+	ADD,
+	DEL,
+	SER,
+	MOD,
+	SHOW,
+	AAA
+};
+
 struct peoinf
 {
 	int age;
@@ -25,3 +37,4 @@ struct contact
 void Initcontact(struct contact* ps);
 void Addcontact(struct contact* ps);
 void Showcontact(const struct contact* ps);
+void Delcontacat(struct contact* ps);

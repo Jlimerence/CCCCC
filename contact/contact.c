@@ -30,13 +30,31 @@ void Addcontact(struct contact* ps)
 void Showcontact(const struct contact* ps)
 {
 
-	printf("%-4s\t%-20s\t%-10s\t%-12s\t%-20s\n", "年龄", "姓名", "性别", "电话", "地址");
+	if (ps->size == 0)
+		printf("通讯录为空\n");
+	else
+	{
+		printf("%-4s\t%-20s\t%-10s\t%-12s\t%-20s\n", "年龄", "姓名", "性别", "电话", "地址");
+		int i = 0;
+		for (i = 0; i < ps->size; i++)
+		{
+			printf("%-4d\t%-20s\t%-10s\t%-12s\t%-20s\n",
+				ps->data[i].age,
+				ps->data[i].name,
+				ps->data[i].sex,
+				ps->data[i].tele,
+				ps->data[i].addr);
+		}
+	
+	}
 
-	printf("%-4d\t%-20s\t%-10s\t%-12s\t%-20s\n",
-		ps->data[ps->size].age,
-		ps->data[ps->size].name,
-		ps->data[ps->size].sex,
-		ps->data[ps->size].tele,
-		ps->data[ps->size].addr);
+}
+
+void Delcontacat(struct contact* ps)
+{	
+	char name[MAX_NAME];
+	printf("请输入要删除人的姓名：");
+	scanf("%s", name);
+
 
 }

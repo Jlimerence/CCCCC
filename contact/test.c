@@ -26,19 +26,19 @@ int main()
 		scanf("%d", &input);
 		switch (input)
 		{
-		case 1:Addcontact(&con);
+		case ADD:Addcontact(&con);
 			break;
-		case 2:
+		case DEL:Delcontacat(&con);
 			break;
-		case 3:
+		case SER:
 			break;
-		case 4:
+		case MOD:
 			break;
-		case 5:Showcontact(&con);
+		case SHOW:Showcontact(&con);
 			break;
-		case 6:
+		case AAA:
 			break;
-		case 0:printf("退出通讯录\n");
+		case EXIT:printf("退出通讯录\n");
 			break;
 		default:printf("输入错误\n");
 			break;
