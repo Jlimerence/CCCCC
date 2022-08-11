@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 
 #define MAX_NAME 20
 #define MAX_SEX 10
@@ -16,7 +17,7 @@ enum Option
 	SER,
 	MOD,
 	SHOW,
-	AAA
+	SOR
 };
 
 struct peoinf
@@ -38,3 +39,6 @@ void Initcontact(struct contact* ps);
 void Addcontact(struct contact* ps);
 void Showcontact(const struct contact* ps);
 void Delcontacat(struct contact* ps);
+void Sercontact(struct contact* ps);
+void Modcontact(struct contact* ps);
+void Sorcontact(struct contact* ps);
