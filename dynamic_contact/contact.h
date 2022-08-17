@@ -45,3 +45,5 @@ void Sercontact(struct contact* ps);
 void Modcontact(struct contact* ps);
 void Sorcontact(struct contact* ps);
 void Destory(struct contact* ps);
+void Savecontact(struct contact* ps);
+void Loadcontact(struct contact* ps);

@@ -39,7 +39,8 @@ int main()
 		//排序
 		case SOR:Sorcontact(&con);
 			break;
-		case EXIT:Destory(&con);
+		case EXIT:Savecontact(&con);
+			Destory(&con);
 			printf("退出通讯录\n");
 			break;
 		default:printf("输入错误\n");

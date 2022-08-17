@@ -8,6 +8,8 @@ void Initcontact(struct contact* ps)
 	ps->size = 0;
 	ps->capcity = INITIAL;
 
+	Loadcontact(ps);
+
 }
 
 void Checkcapcity(struct contact* ps)
@@ -15,7 +17,7 @@ void Checkcapcity(struct contact* ps)
 	if (ps->size == ps->capcity)
 	{
 		//增容
-		struct peoinf* ptr = (struct peoinf*)realloc(ps->data, (INITIAL +ps->capcity) * sizeof(struct peoinf));
+		struct peoinf* ptr = (struct peoinf*)realloc(ps->data, (INITIAL + ps->capcity) * sizeof(struct peoinf));
 		if (ptr != NULL)
 		{
 			ps->data = ptr;
@@ -24,6 +26,27 @@ void Checkcapcity(struct contact* ps)
 		}
 	}
 
+}
+
+void Loadcontact(struct contact* ps)
+{
+	FILE* pf = fopen("contact.dat", "r");
+	if (pf == NULL)
+	{
+		perror("reason");
+		return;
+	}
+	//操作文件
+	struct peoinf tmp = { 0 };
+	while (fread(&tmp, sizeof(struct peoinf), 1, pf))
+	{
+		Checkcapcity(ps);
+		ps->data[ps->size] = tmp;
+		ps->size++;
+	}
+
+	fclose(pf);
+	pf = NULL;
 }
 
 
@@ -182,5 +205,26 @@ void Destory(struct contact* ps)
 {
 	free(ps->data);
 	ps->data = NULL;
+	ps->data = 0;
+	ps->size = 0;
+
+}
+
+void Savecontact(struct contact* ps)
+{
+	FILE* pf = fopen("contact.dat", "w");
+	if (pf == NULL)
+	{
+		perror("reason");
+		return;
+	}
+	//操作文件
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		fwrite(ps->data + i, sizeof(struct peoinf), 1, pf);
+	}
+	fclose(pf);
+	pf = NULL;
 
 }
