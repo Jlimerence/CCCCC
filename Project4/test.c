@@ -36,7 +36,9 @@ int main()
 			break;
 		case 6:Sorcontact(&con);
 			break;
-		case 0:printf("退出通讯录\n");
+		case 0:Savecontact(&con);
+			Destorycontact(&con);
+			printf("退出通讯录\n");
 			break;
 		default:printf("选择错误\n");
 			break;

@@ -205,7 +205,7 @@ void Destory(struct contact* ps)
 {
 	free(ps->data);
 	ps->data = NULL;
-	ps->data = 0;
+	ps->capcity = 0;
 	ps->size = 0;
 
 }

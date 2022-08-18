@@ -1,4 +1,3 @@
 ﻿  contact.c
-  test.c
-  正在生成代码...
+D:\CCCCC\CCCCC\Project4\contact.c(24,18): warning C4133: “函数”: 从“char [7]”到“FILE *”的类型不兼容
   Project4.vcxproj -> D:\CCCCC\CCCCC\Project4\x64\Debug\Project4.exe

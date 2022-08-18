@@ -146,19 +146,104 @@
 //}
 
 
+//int main()
+//{
+//	FILE* pf = fopen("text.txt", "r");
+//	if (pf == NULL)
+//	{
+//		return 0;
+//	}
+//
+//	int ch = fgetc(pf);
+//	printf("%d", ch);
+//
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int a = 10;
+//	float b = 3.14f;
+//	char arr[10] = "hello";
+//
+//	//打开文件
+//	FILE* pf = fopen("text.txt", "w");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 0;
+//	}
+//	//操作文件
+//
+//	//将a,b,arr中的数据write（写入）到pf流中去
+//	fprintf(pf, "%d %f %s\n", a, b, arr);
+//	//将常量字符串写入到pf流中去
+//	fprintf(pf, "modern");
+//
+//	//用fprintf实现printf---->将数据写入到标准输出流中（屏幕）
+//	fprintf(stdout, "%d %f %s\n", a, b, arr);
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a;
+//	float b;
+//	char arr[10];
+//
+//	//打开文件
+//	FILE* pf = fopen("text.txt", "r");
+//	if (pf == NULL)
+//	{
+//		printf("%s\n", strerror(errno));
+//		return 0;
+//	}
+//	//操作文件
+//	//从pf流中读取数据并且存放到a,b,arr中去
+//	fscanf(pf, "%d %f %s", &a, &b, arr);
+//	printf("a=%d,b=%f,arr=%s\n", a, b, arr);
+//	//用fprintf打印到屏幕上
+//	fprintf(stdout, "a=%d,b=%f,arr=%s\n", a, b, arr);
+//
+//
+//	//关闭文件
+//	fclose(pf);
+//	pf = NULL;
+//
+//	return 0;
+//}
+
+
+//int main()
+//{	
+//	int a=0;
+//	fscanf(stdin, "%d", &a);
+//	fprintf(stdout, "%d", a);
+//
+//
+//
+//	return 0;
+//}
+
 int main()
-{
-	FILE* pf = fopen("text.txt", "r");
-	if (pf == NULL)
-	{
-		return 0;
-	}
-
-	int ch = fgetc(pf);
-	printf("%d", ch);
-
+{	
+	char arr[100];
+	FILE* pf =fopen ("hhh.txt", "r");
+	fscanf(pf, "%s", arr);
+	printf("%s", arr);
 	fclose(pf);
 	pf = NULL;
+
 
 	return 0;
 }

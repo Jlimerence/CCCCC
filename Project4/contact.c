@@ -8,12 +8,44 @@ void Initcontact(struct contact* ps)
 	if ( ps->data== NULL)
 	{
 		printf("%s",strerror(errno));
-	}
-	else
-	{	
+	}	
 		ps->size = 0;
 		ps->capcity = 3;
+
+		Loadcontact(ps);
+}
+
+void Loadcontact(struct contact* ps)
+{
+
+	FILE* pf = fopen("contact.dat", "r");
+	if (pf == NULL)
+	{
+		ferror("reason");
+		return;
 	}
+	//判断是否需要扩容
+
+	if (ps->capcity == ps->size)
+	{
+		//扩容
+		struct peoinf* ptr = (struct peoinf*)realloc(ps->data, sizeof(struct peoinf) * (MAX_CAPCITY + ps->capcity));
+		if (ptr != NULL)
+		{
+			ps->data = ptr;
+			ps->capcity += MAX_CAPCITY;
+			printf("扩容成功\n");
+		}
+	}
+	struct peoinf tmp = { 0 };
+	while (fread(&tmp, sizeof(struct peoinf), 1, pf))
+	{
+		ps->data[ps->size] = tmp;
+		ps->size++;
+	}
+
+	fclose(pf);
+	pf = NULL;
 }
 
 void Addcontact(struct contact* ps)
@@ -120,7 +152,7 @@ void Sercontact(struct contact* ps)
 
 void Modcontact(struct contact* ps)
 {	
-	char name[20];
+	char name[20]={0};
 	printf("请输入要修改人的姓名：");
 	scanf("%s", name);
 	int i = 0;
@@ -157,5 +189,34 @@ void Sorcontact(struct contact* ps)
 		}
 	}
 	printf("排序成功\n");
+
+}
+
+void Destorycontact(struct contact* ps)
+{
+	free(ps->data);
+	ps->data = NULL;
+	ps->capcity = 0;
+	ps->size = 0;
+	
+}
+
+void Savecontact(struct contact* ps)
+{
+	FILE* pf = fopen("contact.dat", "w");
+	if (pf == NULL)
+	{
+		perror("reason");
+		return;
+	}
+	//操作文件
+	int i = 0;
+	for(i=0;i<ps->size;i++)
+	{
+		fwrite(ps->data+i, sizeof(struct peoinf), 1, pf);
+	}
+
+	fclose(pf);
+	pf = NULL;
 
 }

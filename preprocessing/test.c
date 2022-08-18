@@ -98,17 +98,45 @@
 //	return 0;
 //}
 
-int	main()
-{
-	int arr[10] = { 0 };
-	int i = 0;
-	for (i = 0; i < 10; i++)
-	{
-		arr[i] = i;
-		if(1)
-		printf("%d ",arr[i]);
-	}
+//int	main()
+//{
+//	int arr[10] = { 0 };
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		arr[i] = i;
+//		if(1)
+//		printf("%d ",arr[i]);
+//	}
+//
+//
+//	return 0;
+//}
 
+//找单身狗
+
+void Find_dog(int* p, int sz)
+{
+	int i = 0;
+	int dog = 0;
+	for (i = 0; i < sz; i++)
+	{
+		dog = dog ^ p[i];
+	}
+	//分组
+	//如何得到二进制最后一位
+	dog = dog | 0;
+	printf("%d", dog);
+
+}
+//0101   5
+//0110   6
+//0011 异或
+int main()
+{
+	int arr[] = { 1,2,3,4,5,1,2,3,4,6 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	Find_dog(arr,sz);
 
 	return 0;
 }
