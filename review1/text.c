@@ -55,3 +55,48 @@
 //}
 
 
+//匿名结构体类型
+//struct
+//{
+//	int a;
+//	char b;
+//	float c;
+//}x;
+//struct
+//{
+//	int a;
+//	char b;
+//	float c;
+//}a[20], * p;
+//
+//int main()
+//{
+//	p = &x;//垃圾编译器，类型不同都没有警告------>在Linux下实现会报错
+//
+//	return 0;
+//}
+
+
+//结构体的自引用
+struct A
+{
+	int _a : 2;
+	int _b : 5;
+	int _c : 10;
+	int _d : 30;
+};
+
+struct S
+{
+	int data;
+	struct S *next;
+};
+
+int main()
+{
+	printf("%d", sizeof(struct A));
+
+
+	return 0;
+}
+
