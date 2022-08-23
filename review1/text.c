@@ -78,24 +78,40 @@
 
 
 //结构体的自引用
-struct A
-{
-	int _a : 2;
-	int _b : 5;
-	int _c : 10;
-	int _d : 30;
-};
+//struct A
+//{
+//	int _a : 2;
+//	int _b : 5;
+//	int _c : 10;
+//	int _d : 30;
+//};
+//
+//struct S
+//{
+//	int data;
+//	struct S *next;
+//};
+//
+//int main()
+//{
+//	printf("%d", sizeof(struct A));
+//
+//
+//	return 0;
+//}
 
-struct S
-{
-	int data;
-	struct S *next;
-};
+
 
 int main()
 {
-	printf("%d", sizeof(struct A));
+	int i = 0, j = 0;
+	for (i = 0; i < 10; i++)
+	{	
+		if (i == 5)
+			continue;
 
+		printf("%d ", i);
+	}
 
 	return 0;
 }
