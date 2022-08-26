@@ -37,3 +37,9 @@ void Modcontacact(contact* ps);
 void Sorcontact(contact* ps);
 
 void Descontact(contact* ps);
+
+void Checkcap(contact* ps);
+
+void Loadcontact(contact* ps);
+
+void Writefile(contact* ps);

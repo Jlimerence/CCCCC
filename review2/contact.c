@@ -1,22 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include"contact.h"
 
-void Initcontact(contact* ps)
+void Checkcap(contact* ps)
 {
-	ps->data = (peoinf*)malloc(sizeof(peoinf) * DEFAULT);
-	//判断是否开辟失败
-	if (ps->data == NULL)
-	{
-		printf("%s\n", strerror(errno));
-		return;
-	}
-	ps->capcity = 3;
-	ps->size = 0;
-}
-
-void Addcontact(contact* ps)
-{
-	//判断容量够不够
 	if (ps->capcity == ps->size)
 	{
 		//增容
@@ -33,6 +19,72 @@ void Addcontact(contact* ps)
 		ps->capcity += 2;
 		printf("扩容成功\n");
 	}
+}
+
+void Loadcontact(contact* ps)
+{
+	
+	FILE* pf = fopen("text.txt", "r");
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	int i = 1;
+	while (fread(ps->data + i-1, sizeof(peoinf), 1, pf))
+	{	
+		//从size=0的位置开始读取数据
+		ps->size++;
+		//判断是否需要增容
+		Checkcap(ps);
+		i++;
+	}
+	//关闭文件
+	fclose(pf);
+	pf = NULL;
+}
+
+void Initcontact(contact* ps)
+{
+	ps->data = (peoinf*)malloc(sizeof(peoinf) * DEFAULT);
+	//判断是否开辟失败
+	if (ps->data == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	ps->capcity = 3;
+	ps->size = 0;
+
+	//打开软件时将已经写入的文件装载进来
+	Loadcontact(ps);
+
+}
+
+//将内容写入文件中
+void Writefile(contact* ps)
+{
+	FILE* pf = fopen("text.txt", "w");
+	if (pf == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
+	int i = 0;
+	for (i = 0; i < ps->size; i++)
+	{
+		fwrite(ps->data+i, sizeof(peoinf), 1, pf);
+	}
+	fclose(pf);
+	pf = NULL;
+
+}
+
+
+void Addcontact(contact* ps)
+{
+	//判断容量够不够
+	Checkcap(ps);
 	//添加
 	printf("请输入年龄："); scanf("%d", &(ps->data[ps->size].age));
 	printf("请输入性别："); scanf("%s", (ps->data[ps->size].sex));
@@ -41,7 +93,10 @@ void Addcontact(contact* ps)
 	printf("请输入电话："); scanf("%s", (ps->data[ps->size].tele));
 	ps->size++;
 	printf("添加成功\n");
+
+	Writefile(ps);
 }
+
 
 void showcontact(contact* ps)
 {	
@@ -51,7 +106,7 @@ void showcontact(contact* ps)
 		return;
 	}
 	//打印目录
-	printf("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\n","年龄","性别","性别","地址","电话");
+	printf("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\n","年龄","性别","姓名","地址","电话");
 	//打印内容
 	int i = 0;
 	for (i = 0; i < ps->size; i++)
@@ -111,7 +166,7 @@ void Sercontact(contact* ps)
 		printf("要查找的人不存在\n");
 	else
 	{
-		printf("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\n", "年龄", "性别", "性别", "地址", "电话");
+		printf("%-10s\t%-10s\t%-10s\t%-10s\t%-10s\n", "年龄", "性别", "姓名", "地址", "电话");
 
 		printf("%-10d\t%-10s\t%-10s\t%-10s\t%-10s\n",
 			ps->data[ret].age, ps->data[ret].sex,
