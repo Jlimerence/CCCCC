@@ -116,10 +116,20 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a = 1;
+//	
+//
+//	return 0;
+//}
+
+#include<string.h>
+
 int main()
 {
-	int a = 1;
-	
+	char arr[] = "hello\0world";
+	printf("%d\n", strlen(arr));
 
 	return 0;
 }
