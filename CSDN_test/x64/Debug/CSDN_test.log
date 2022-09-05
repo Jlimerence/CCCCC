@@ -1,2 +1,4 @@
 ﻿  test.c
+D:\CCCCC\CCCCC\CSDN_test\test.c(72,9): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“size_t”
+D:\CCCCC\CCCCC\CSDN_test\test.c(72,9): message : 请考虑在格式字符串中使用“%zd”
   CSDN_test.vcxproj -> D:\CCCCC\CCCCC\CSDN_test\x64\Debug\CSDN_test.exe
